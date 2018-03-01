@@ -11,7 +11,7 @@
 ### crud-module
 Модуль держит in-memory БД _H2_ и _REST_ веб-сервис для работы с сущностями.
 
-Веб-сервис запускается на `localhost:8080` и поддерживает запросы по следующим _URL_:
+Веб-сервис запускается на `http://localhost:8080` и поддерживает запросы по следующим _URL_:
  * `.../workers - POST, GET`
  * `.../workers/{id} - GET, DELETE`
  * `.../departments - POST, GET`
