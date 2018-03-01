@@ -14,6 +14,10 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 import static ru.softage.task.crud.db.entities.AbstractEntity.PARAMETER_ID;
 import static ru.softage.task.api.tools.CollectionUtils.collectionToString;
 
+/**
+ * Abstract Repository with most common methods implemented.
+ * @param <E> target entity class
+ */
 @Repository
 public abstract class CommonRepository<E extends AbstractEntity> {
     private static final Logger log = LoggerFactory.getLogger(CommonRepository.class);

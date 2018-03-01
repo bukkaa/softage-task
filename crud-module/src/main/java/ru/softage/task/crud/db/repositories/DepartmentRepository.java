@@ -12,6 +12,9 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 import static ru.softage.task.crud.db.entities.DepartmentEntity.DELETE_DEPT_BY_ID;
 import static ru.softage.task.crud.db.entities.DepartmentEntity.FIND_DEPARTMENTS;
 
+/**
+ * Repository for CRUD operations on {@link DepartmentEntity} (table 'departments')
+ */
 @Repository
 public class DepartmentRepository extends CommonRepository<DepartmentEntity> {
 

@@ -17,6 +17,16 @@ import static java.util.Collections.singletonList;
 import static java.util.stream.Collectors.toList;
 import static ru.softage.task.api.Code.INTERNAL_ERROR;
 
+/**
+ * Controls the requests processing.
+ *
+ * @param <M> requested model class
+ * @param <E> target entity class
+ * @param <R> specific repository
+ *           @see ru.softage.task.crud.db.repositories.DepartmentRepository
+ *           @see ru.softage.task.crud.db.repositories.WorkedHoursRepository
+ *           @see ru.softage.task.crud.db.repositories.WorkerRepository
+ */
 @SuppressWarnings("unchecked")
 abstract class AbstractController<M extends AbstractModel, E extends AbstractEntity, R extends CommonRepository> {
     private static final Logger log = LoggerFactory.getLogger(AbstractController.class);
@@ -29,8 +39,16 @@ abstract class AbstractController<M extends AbstractModel, E extends AbstractEnt
     }
 
 
+    /**
+     * @param model specific subclass of {@link AbstractModel} from request
+     * @return DB entity (subclass of {@link AbstractEntity})
+     */
     abstract E toEntity(M model);
 
+    /**
+     * @param entity DB entity (subclass of {@link AbstractEntity})
+     * @return specific subclass of {@link AbstractModel} for response
+     */
     abstract M toModel(E entity);
 
 
@@ -172,6 +190,10 @@ abstract class AbstractController<M extends AbstractModel, E extends AbstractEnt
         return response;
     }
 
+    /**
+     * Simple validation of received ID.
+     * @param id {@link Long}
+     */
     void validate(Long id) {
         if (id != null) {
             if (id < 0) {
@@ -183,6 +205,10 @@ abstract class AbstractController<M extends AbstractModel, E extends AbstractEnt
         log.info("validated successful: id = {}", id);
     }
 
+    /**
+     * Simple validation of required fields.
+     * @param model specific subclass of {@link AbstractModel} from request
+     */
     void validate(M model){
         if (model == null) {
             log.error("Persisting model must not be null");
@@ -217,6 +243,10 @@ abstract class AbstractController<M extends AbstractModel, E extends AbstractEnt
         }
     }
 
+    /**
+     * @param entities list of specific DB entities
+     * @return list of specific models
+     */
     private List<M> toModel(List<E> entities){
         return entities.stream().map(this::toModel).collect(toList());
     }

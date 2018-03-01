@@ -16,6 +16,9 @@ import static ru.softage.task.api.Code.INTERNAL_ERROR;
 import static ru.softage.task.api.tools.CollectionUtils.collectionToString;
 import static ru.softage.task.crud.db.entities.WorkedHoursEntity.*;
 
+/**
+ * Repository for CRUD operations on {@link WorkedHoursEntity} (table 'worked_hours')
+ */
 @Repository
 public class WorkedHoursRepository extends CommonRepository<WorkedHoursEntity> {
     private static final Logger log = LoggerFactory.getLogger(WorkedHoursRepository.class);

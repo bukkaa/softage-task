@@ -12,6 +12,9 @@ import static org.springframework.transaction.annotation.Propagation.REQUIRED;
 import static ru.softage.task.crud.db.entities.WorkerEntity.DELETE_WORKER_BY_ID;
 import static ru.softage.task.crud.db.entities.WorkerEntity.FIND_WORKERS;
 
+/**
+ * Repository for CRUD operations on {@link WorkerEntity} (table 'workers')
+ */
 @Repository
 public class WorkerRepository extends CommonRepository<WorkerEntity> {
 
