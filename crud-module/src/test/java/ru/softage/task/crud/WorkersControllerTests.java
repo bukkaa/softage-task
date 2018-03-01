@@ -40,7 +40,7 @@ public class WorkersControllerTests {
 	@Test
 	public void createNewWorker() {
         WorkerModel model = new WorkerModel()
-                            .setId(10L)
+//                            .setId(10L)
                             .setName("TEST")
                             .setLastName("WORKER")
                             .setPosition("TEST POSITION")
@@ -50,7 +50,8 @@ public class WorkersControllerTests {
 
         Response<WorkerModel> response = rest.postForObject(URL, model, Response.class);
 
-        checkSuccess(response, "updated");
+        checkSuccess(response, "created");
+//        checkSuccess(response, "updated");
 
         assertThat(response.entities.size()).isEqualTo(1);
         WorkerModel entity = response.entities.get(0);
